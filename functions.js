@@ -18,3 +18,21 @@ function parseToRoman(number) {
     
     return retour;
 }
+
+
+function transform(char){
+    const alphabet = Array.from("abcdefghijklmnopqrstuvwxyz");
+    if (char== " ") return char;
+    let index = alphabet.indexOf(char.toLowerCase());
+    let new_index = (index+13>25)?index-13:index+13;
+    return alphabet[new_index].toUpperCase();
+}
+
+function toRot13(stringToTransform) {
+
+    let arrayToTransform = Array.from(stringToTransform);
+    let result = "";
+    arrayToTransform.forEach(element => result+=transform(element));
+
+    return result;
+}
